@@ -16,3 +16,4 @@ jobs:
           build: npm run build
           start: npm start
           config-file: cypress.config.js
+          working-directory: frontend
