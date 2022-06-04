@@ -1,14 +1,17 @@
-name: End-to-end tests
+name: Cypress Tests
+
 on: [push]
+
 jobs:
-  basic-ubuntu-20-v10:
-    runs-on: ubuntu-20.04
+  cypress-run:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Cypress tests
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ./frontend
-          build: npx cypress info
+          build: npm run build
+          start: npm start
